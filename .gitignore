@@ -1,7 +1,45 @@
-*__pycache__/
-.env
-node_modules/
-.dist/
-coverage/
-.venv/
+# OS / Editor
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Node / pnpm
+**/node_modules/
+.pnpm-store/
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Builds & caches
+**/dist/
+**/build/
+**/.vite/
+**/.cache/
+**/.turbo/
+**/.parcel-cache/
+.vitest/
+
+# Testing
+coverage/
+**/coverage/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Python leftovers
+**/__pycache__/
+.venv/
+
+# Docker
+.docker/
+docker-data/
+
+# Logs
+*.log
+
