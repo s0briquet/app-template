@@ -1,4 +1,5 @@
 # Global Rules (Draft)
+
 - Keep functions small and pure; prefer composition.
 - Type everything (TS) / use pydantic/typing (Py).
 - Add tests for new logic; keep 80%+ coverage on critical paths.

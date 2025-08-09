@@ -1,0 +1,17 @@
+{
+  "name": "app-template",
+  "private": true,
+  "packageManager": "pnpm@10.14.0",
+  "scripts": {
+    "lint": "pnpm -r exec eslint .",
+    "format": "pnpm -r exec prettier . --write",
+    "typecheck": "pnpm -r exec tsc -b"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "typescript-eslint": "^8.39.0"
+  },
+  "type": "module"
+}
