@@ -1,27 +1,21 @@
-# Use the official Node LTS image (has Node + npm preinstalled)
 FROM node:20-alpine
 
-# Set working directory inside container
-WORKDIR /app
+# Work inside the web app folder
+WORKDIR /app/apps/web
 
-# Install pnpm globally
+# Package manager
 RUN npm install -g pnpm
 
-# Copy only package files first (better caching for dependencies)
-COPY package.json pnpm-lock.yaml ./
-COPY pnpm-workspace.yaml ./
+# Install deps for the web app (no app-level lockfile)
+COPY apps/web/package.json ./
+RUN pnpm install --no-frozen-lockfile
 
-# Copy the web app's package files
-COPY apps/web/package.json apps/web/pnpm-lock.yaml ./apps/web/
-
-# Install dependencies for all workspaces
-RUN pnpm install
-
-# Copy the rest of the code
+# Bring in the rest of the repo (so TS base config etc. are visible)
+WORKDIR /app
 COPY . .
+WORKDIR /app/apps/web
 
-# Expose Vite dev server port
+# Vite dev server
 EXPOSE 5173
+CMD ["pnpm", "dev", "--host"]
 
-# Start the dev server
-CMD ["pnpm", "--filter", "web", "dev", "--host"]

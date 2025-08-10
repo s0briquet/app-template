@@ -5,7 +5,11 @@
   "scripts": {
     "lint": "pnpm -r exec eslint .",
     "format": "pnpm -r exec prettier . --write",
-    "typecheck": "pnpm -r exec tsc -b"
+    "typecheck": "pnpm -r exec tsc -b",
+    "dev-docker": "docker compose -f docker-compose.dev.yml up --build",
+    "dev-docker:detached": "docker compose -f docker-compose.dev.yml up -d --build",
+    "down-docker": "docker compose -f docker-compose.dev.yml down",
+    "dev": "pnpm --filter web dev"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

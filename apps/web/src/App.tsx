@@ -5,6 +5,8 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  // Set browser tab title from env
+  document.title = import.meta.env.VITE_APP_TITLE ?? "My App";
 
   return (
     <>
@@ -16,8 +18,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Rachel’s First App 🚀</h1>
-      <p data-testid="greeting">Hello, Lije!</p>
+      <h1>Lije & Rachel’s First App 🚀</h1>
+      <p data-testid="greeting">Hello, Chris and Cass!</p>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

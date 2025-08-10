@@ -1,5 +1,7 @@
 services:
   web:
+    env_file:
+      - .env
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -10,5 +12,3 @@ services:
       - /app/node_modules
     working_dir: /app/apps/web
     command: sh -c "pnpm install --force --no-frozen-lockfile && pnpm exec vite --host"
-
-
