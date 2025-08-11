@@ -1,0 +1,6 @@
+node_modules
+dist
+build
+.vitest
+.pnpm-store
+pnpm-lock.yaml

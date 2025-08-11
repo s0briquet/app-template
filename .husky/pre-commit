@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 1) Format everything (fast enough for this repo)
+pnpm exec prettier . --write
+
+# 2) Lint (fail fast on code issues)
+pnpm lint
+
+# 3) Typecheck the web app (keeps TS errors out of main)
+pnpm --filter web exec tsc --noEmit
+
+# 4) Run unit tests quickly (silent output)
+pnpm vitest run --silent
+
