@@ -1,29 +1,22 @@
-import { Link } from "react-router-dom";
-import Layout from "./_Layout";
+import { Route, Routes, Navigate, Link } from "react-router-dom";
+import Home from "./Home";
 
 export default function App() {
   return (
-    <Layout>
-      <section className="grid gap-6">
-        <h1 className="text-3xl font-semibold">
-          Sharpen your Japanese in an AI-powered dojo
-        </h1>
-        <p className="text-gray-600 max-w-prose">
-          Practice natural conversations with friendly “senseis.” Start simple,
-          level up fast.
-        </p>
-        <div className="flex gap-3">
-          <Link
-            to="/dojos"
-            className="px-4 py-2 rounded-xl bg-black text-white"
-          >
-            Choose a dojo
-          </Link>
-          <Link to="/about" className="px-4 py-2 rounded-xl border">
-            How it works
-          </Link>
-        </div>
-      </section>
-    </Layout>
+    <div className="min-h-screen p-6">
+      <header className="mb-6 flex items-center justify-between">
+        <h1 className="text-2xl font-semibold">Your App</h1>
+        <nav className="flex gap-4">
+          <Link className="underline" to="/">Home</Link>
+        </nav>
+      </header>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+    </div>
   );
 }

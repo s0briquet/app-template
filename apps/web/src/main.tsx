@@ -1,22 +1,16 @@
-import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
-import reactHooks from "eslint-plugin-react-hooks";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import "./index.css";
 
-export default [
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    files: ["**/*.{ts,tsx}"],
-    languageOptions: { ecmaVersion: "latest", sourceType: "module" },
-    plugins: { "react-hooks": reactHooks },
-    rules: {
-      // Keep velocity high while prototyping
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      // TypeScript handles this; avoid false positives in Vite/Tailwind configs
-      "no-undef": "off",
-    },
-  },
-];
+const el = document.getElementById("root");
+if (!el) throw new Error("#root not found in index.html");
+
+createRoot(el).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);

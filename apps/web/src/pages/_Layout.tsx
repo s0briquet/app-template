@@ -9,14 +9,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b">
         <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
           <Link to="/" className="font-semibold">
-            ConvoDojo
+            Your App
           </Link>
           <nav className="flex gap-2">
             <NavLink to="/" className={navClass}>
               Home
-            </NavLink>
-            <NavLink to="/dojos" className={navClass}>
-              Dojos
             </NavLink>
             <NavLink to="/about" className={navClass}>
               About
@@ -26,7 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
       <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
       <footer className="mx-auto max-w-5xl px-4 py-10 text-sm text-gray-500">
-        © {new Date().getFullYear()} ConvoDojo
+        © {new Date().getFullYear()} Your App
       </footer>
     </div>
   );
